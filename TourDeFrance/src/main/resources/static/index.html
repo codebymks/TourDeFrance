@@ -4,23 +4,12 @@
     <meta charset="UTF-8">
     <title>Tour de France</title>
     <link rel="stylesheet" href="/css/style.css">
-
-    <!-- API BASE -->
-    <script>
-        const API_BASE_URL = "http://localhost:8080";
-    </script>
-
-    <!-- JS -->
-    <script src="/js/riders.js" defer></script>
-    <script src="/js/teams.js" defer></script>
 </head>
-
 <body>
 
 <h1>Riders</h1>
 
 <!-- ================= RIDERS TABLE ================= -->
-
 <table id="riderTable" border="1">
 
     <thead>
@@ -39,18 +28,14 @@
     </thead>
 
     <tbody>
-    <!-- Filled by JS -->
     </tbody>
 
 </table>
 
-
 <!-- ================= CREATE RIDER ================= -->
-
 <h2>Add Rider</h2>
 
 <form id="riderForm">
-
     <input id="firstName" placeholder="First Name" required>
     <input id="lastName" placeholder="Last Name" required>
 
@@ -66,22 +51,16 @@
         <option value="GERMANY">Germany</option>
         <option value="SPAIN">Spain</option>
     </select>
-
-    <input id="teamName" placeholder="Team Name" required>
-
+    <select id="teamSelect" required>
+        <option value="">Select Team</option>
+    </select>
     <button type="submit">Save Rider</button>
-
 </form>
 
-
 <!-- ================= UPDATE RIDER ================= -->
-
 <div id="updateRiderFormContainer" style="display:none">
-
     <h2>Update Rider</h2>
-
     <form id="updateRiderForm">
-
         <input type="hidden" id="updateRiderId">
 
         <input id="updateFirstName" placeholder="First Name" required>
@@ -90,22 +69,26 @@
         <input id="updateAge" type="number" placeholder="Age" required>
         <input id="updateTotalTime" type="number" placeholder="Total Time" required>
 
+        <select id="updateCountry" required>
+            <option value="">Select Country</option>
+            <option value="FRANCE">France</option>
+            <option value="DENMARK">Denmark</option>
+            <option value="GERMANY">Germany</option>
+            <option value="SPAIN">Spain</option>
+        </select>
+
+        <select id="updateTeamSelect" required></select>
+        <input id="updateSprintPoint" type="number" placeholder="Sprint Point" required>
+        <input id="updateMountainPoint" type="number" placeholder="Mountain Point" required>
+
         <button type="submit">Update Rider</button>
-
     </form>
-
 </div>
-
-
-<hr>
-
 
 <h1>Teams</h1>
 
 <!-- ================= TEAMS TABLE ================= -->
-
 <table id="teamsTable" border="1">
-
     <thead>
     <tr>
         <th>ID</th>
@@ -114,22 +97,14 @@
         <th>Actions</th>
     </tr>
     </thead>
-
     <tbody>
-    <!-- Filled by JS -->
     </tbody>
-
 </table>
 
-
 <!-- ================= CREATE TEAM ================= -->
-
 <h2>Add Team</h2>
-
 <form id="teamForm">
-
     <input id="teamNameInput" placeholder="Team Name" required>
-
     <select id="teamCountry" required>
         <option value="">Select Country</option>
         <option value="FRANCE">France</option>
@@ -137,14 +112,10 @@
         <option value="GERMANY">Germany</option>
         <option value="SPAIN">Spain</option>
     </select>
-
     <button type="submit">Save Team</button>
-
 </form>
 
-
 <!-- ================= UPDATE TEAM ================= -->
-
 <div id="updateTeamFormContainer" style="display:none">
     <h2>Update Team</h2>
     <form id="updateTeamForm">
@@ -162,5 +133,9 @@
         <button type="submit">Update Team</button>
     </form>
 </div>
+
+<script>const API_BASE_URL = "http://localhost:8080";</script>
+<script src="/js/riders.js" defer></script>
+<script src="/js/teams.js" defer></script>
 </body>
 </html>

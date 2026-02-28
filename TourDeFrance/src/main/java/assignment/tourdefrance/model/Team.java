@@ -1,6 +1,7 @@
 package assignment.tourdefrance.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -16,8 +17,9 @@ public class Team {
     @Enumerated(EnumType.STRING)
     private Country country;
 
-    @JsonManagedReference
+
     @OneToMany(mappedBy = "team")
+    @JsonIgnoreProperties("team")
     private List<Rider> riderList;
 
     public int getTeamId() {

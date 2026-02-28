@@ -1,6 +1,7 @@
 package assignment.tourdefrance.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -19,9 +20,10 @@ public class Rider {
     @Enumerated(EnumType.STRING)
     private Country country;
 
-    @JsonBackReference
+
     @ManyToOne
     @JoinColumn(name = "teamId")
+    @JsonIgnoreProperties("riderList")
     private Team team;
 
     public Team getTeam() {

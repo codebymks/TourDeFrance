@@ -17,14 +17,22 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public Team createTeam(Team team) {
+        if (team.getCountry() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Country is required");
+        }
+        if (team.getTeamName() == null || team.getTeamName().trim().isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Team name is required");
+        }
         return teamRepository.save(team);
     }
 
     @Override
     public Team updateTeam(int id, Team team) {
         Team oldTeam = teamRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team not found"));
-        oldTeam.setTeamName(team.getTeamName());
-        oldTeam.setCountry(team.getCountry());
+
+        if (team.getCountry() != null) oldTeam.setCountry(team.getCountry());
+        if (team.getTeamName() != null && !team.getTeamName().trim().isEmpty()) oldTeam.setTeamName(team.getTeamName());
+
         return teamRepository.save(oldTeam);
     }
 

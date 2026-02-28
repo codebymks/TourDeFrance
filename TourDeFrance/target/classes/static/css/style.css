@@ -1,19 +1,97 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff8e1;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FFC107;
 }
 
 table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
+    padding: 12px 15px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #FFD700;
+    color: #000;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #fffbea;
+}
+
+tr:hover {
+    background-color: #fff2a8;
+    transition: background-color 0.3s ease;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: #fffbe6;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffd700;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    border-color: #FFC107;
+    box-shadow: 0 0 5px #FFC107;
+}
+
+#updateRiderFormContainer, #updateTeamFormContainer {
+    max-width: 650px;
+    margin: 40px auto;
+}
+
+@media (max-width: 768px) {
+    table, th, td {
+        font-size: 14px;
+    }
+
+    form input, form select, button {
+        font-size: 14px;
+    }
 }
