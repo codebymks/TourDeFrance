@@ -1,6 +1,6 @@
 console.log("teams loaded");
 
-//CREATE TEAMS
+//Create team
 async function createTeams(event) {
     event.preventDefault();
 
@@ -29,7 +29,7 @@ async function createTeams(event) {
     }
 }
 
-// READ TEAMS
+//Read team
 async function loadTeams() {
     try {
         const response = await fetch(`${API_BASE_URL}/teams`);
@@ -62,7 +62,7 @@ async function loadTeams() {
 }
 
 
-//UPDATE FORM FOR TEAMS
+//Update team form
 function showUpdateTeamForm(team) {
     document.getElementById("updateTeamFormContainer").style.display = "block";
     document.getElementById("updateTeamId").value = team.teamId;
@@ -70,7 +70,7 @@ function showUpdateTeamForm(team) {
     document.getElementById("updateTeamCountry").value = team.country;
 }
 
-//UPDATE TEAM
+//update team
 async function updateTeam(event) {
     event.preventDefault();
 
@@ -100,7 +100,7 @@ async function updateTeam(event) {
     }
 }
 
-// DELETE TEAM
+//delete team
 async function deleteTeam(id) {
 
     if (!confirm("Are you sure you want to delete this team?")) return;
@@ -121,10 +121,6 @@ async function deleteTeam(id) {
 
 document.addEventListener("DOMContentLoaded", () => {
     loadTeams();
-
-    // Create team
     document.getElementById("teamForm").addEventListener("submit", createTeams);
-
-    // Update team
     document.getElementById("updateTeamForm").addEventListener("submit", updateTeam)
 });
