@@ -28,7 +28,7 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./TourDeFrance
           file: ./TourDeFrance/Dockerfile
           push: true
           cache-from: type=gha
