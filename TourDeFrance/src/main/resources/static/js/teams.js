@@ -1,4 +1,4 @@
-console.log("teams loaded");
+console.log("teams script loaded");
 
 //Create team
 async function createTeams(event) {
