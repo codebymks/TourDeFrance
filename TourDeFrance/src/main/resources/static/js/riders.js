@@ -29,7 +29,7 @@ async function populateTeamSelect() {
     }
 }
 
-// CREATE RIDER
+//Create rider
 async function createRider(event) {
     event.preventDefault();
 
@@ -62,7 +62,7 @@ async function createRider(event) {
     }
 }
 
-// READ RIDERS
+//Read rider
 async function loadRiders() {
     try {
         const res = await fetch(`${API_BASE_URL}/riders`);
@@ -101,7 +101,7 @@ async function loadRiders() {
     }
 }
 
-// SHOW UPDATE RIDER FORM
+//UpdateRider form
 function showUpdateRiderForm(rider) {
     document.getElementById("updateRiderFormContainer").style.display = "block";
 
@@ -131,7 +131,7 @@ function showUpdateRiderForm(rider) {
         });
 }
 
-// UPDATE RIDER
+//Update rider
 async function updateRider(event) {
     event.preventDefault();
 
@@ -169,7 +169,7 @@ async function updateRider(event) {
     }
 }
 
-// DELETE RIDER
+//Delete rider
 async function deleteRider(id) {
     if (!confirm("Are you sure you want to delete this rider?")) return;
 
@@ -189,7 +189,6 @@ async function deleteRider(id) {
     }
 }
 
-// INITIALIZATION
 document.addEventListener("DOMContentLoaded", () => {
     populateTeamSelect();
     loadRiders();
